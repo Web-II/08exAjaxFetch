@@ -77,3 +77,24 @@ Resultaat:
         
         
 ## Oefening 2:  FilmBrowser.
+Dit is een oefening op Ajax/fetch, promises, callback, eventhandeling, DOM.
+
+Deze oefening laat de gebruiker een zoekterm ingeven. Na het klikken op de 'Search' button krijgen we de 10 meest relevante films voor de zoekterm te zien. Voor elke film kan op een detail knop geklikt worden en worden de details van de film getoond. Bij de detailview is er ook een knop voorzien om terug te keren naar de zoekresultaten.
+
+De films worden opgevraagd via de volgende api: [Open Movie Database ](http://www.omdbapi.com/). Om deze database te raadplegen heb je een key nodig (deze is gratis). Indien je geen key aanvraagt, kan je volgende key gebruiken: 'apikey=57927523'. Vraag toch je eigen key aan want per key is er een gelimiteerd aantal request per dag. Bekijk de api en tracht de juiste url's te bepalen die nodig zijn om films op te vragen en een film op te vragen via het id van de film: voor beide heb je een request naar de api nodig.
+
+Start applicatie:
+
+![F1.png](/docs/F1.png 'Resultaat')
+    
+Resultaat na zoekterm 'star' ingegeven en op search knop geklikt.
+
+![F2.png](/docs/F2.png 'Resultaat')
+
+Detail film:
+
+![F3.png](/docs/F3.png 'Resultaat')
+
+Indien geen poster beschikbaar is (poster: N/A) wordt de 'No Image Available' afbeelding (zie map images) weergegeven.
+
+![F4.png](/docs/F4.png 'Resultaat') 
