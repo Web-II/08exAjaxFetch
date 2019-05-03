@@ -23,7 +23,7 @@ Nadat de tiende vraag is beantwoord, blijft de laatste vraag met antwoord zichtb
 
 Voor de opmaak en layout wordt gebruik gemaakt van [Materializecss](https://materializecss.com/), het moet niet altijd bootstrap zijn!!
 
-Bekijk heel grondig de html (hoeft niet gewijzigd te worden).
+Bekijk heel grondig de HTML (hoeft niet gewijzigd te worden).
 
 De trivia.js bevat een global function fetchRequest(url) om de data aan de api op te vragen. Deze functie retourneert een promise object. Je mag kiezen hoe je de data retrieved, ofwel met een Ajax request ofwel met een fetch request. In elk geval moet een promise object geretourneerd worden.
 
@@ -50,19 +50,25 @@ Vervolgens is er nog de klasse TriviaApp.
     - indien dit succesvol gebeurt worden de Objecten van de api toegevoegd als Trivia Objecten aan de array van de repository. Vervolgens wordt de quiz opgestart en de eerste vraag weergegeven op de html pagina: showTrivia(nextTrivia).
     - indien dit niet succesvol gebeurt, dan wordt een gepast bericht naar de console (dit mag eventueel ook via een alert of op de webpagina zelf) gestuurd en is de quiz afgelopen.
 - de methode showTrivia zal de webpagina weergeven:
+    
     HTML bij start:
+
     ![T5.png](/docs/T5.png 'Resultaat')
     
     Resultaat:
+
     ![T6.png](/docs/T6.png 'Resultaat')
     
-    HTML - vraag beantwoord - bovenaan weergave vraag en juiste antwoorden
+    HTML - vraag beantwoord - bovenaan weergave vraag en juiste antwoorden:
+
     ![T7.png](/docs/T7.png 'Resultaat')
     
     Resultaat:
+
     ![T8.png](/docs/T8.png 'Resultaat')
     
     HTML: juiste antwoord weergeven en knop wordt Next
+
     ![T9.png](/docs/T9.png 'Resultaat')
     
     Resultaat:
