@@ -72,6 +72,7 @@ Vervolgens is er nog de klasse TriviaApp.
     ![T9.png](/docs/T9.png 'Resultaat')
     
     Resultaat:
+    
     ![T10.png](/docs/T10.png 'Resultaat')
         
         
