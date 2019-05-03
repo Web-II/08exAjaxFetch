@@ -53,27 +53,27 @@ Vervolgens is er nog de klasse TriviaApp.
     
 HTML bij start:
 
-    ![T5.png](/docs/T5.png 'Resultaat')
+![T5.png](/docs/T5.png 'Resultaat')
     
 Resultaat:
 
-    ![T6.png](/docs/T6.png 'Resultaat')
+![T6.png](/docs/T6.png 'Resultaat')
     
 HTML - vraag beantwoord - bovenaan weergave vraag en juiste antwoorden:
 
-    ![T7.png](/docs/T7.png 'Resultaat')
+![T7.png](/docs/T7.png 'Resultaat')
     
 Resultaat:
 
-    ![T8.png](/docs/T8.png 'Resultaat')
+![T8.png](/docs/T8.png 'Resultaat')
     
 HTML: juiste antwoord weergeven en knop wordt Next
 
-    ![T9.png](/docs/T9.png 'Resultaat')
+![T9.png](/docs/T9.png 'Resultaat')
     
 Resultaat:
 
-    ![T10.png](/docs/T10.png 'Resultaat')
+![T10.png](/docs/T10.png 'Resultaat')
         
         
 ## Oefening 2:  FilmBrowser.
