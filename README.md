@@ -20,6 +20,7 @@ Na het klikken op de knop 'next' wordt vraag 6 met mogelijke antwoorden weergege
 
 Nadat de tiende vraag is beantwoord, blijft de laatste vraag met antwoord zichtbaar, maar is de knop disabled.
 ![T4.png](/docs/T4.png 'Resultaat')
+
 Voor de opmaak en layout wordt gebruik gemaakt van [Materializecss](https://materializecss.com/), het moet niet altijd bootstrap zijn!!
 
 Bekijk heel grondig de html (hoeft niet gewijzigd te worden).
@@ -51,14 +52,19 @@ Vervolgens is er nog de klasse TriviaApp.
 - de methode showTrivia zal de webpagina weergeven:
     HTML bij start:
     ![T5.png](/docs/T5.png 'Resultaat')
+    
     Resultaat:
     ![T6.png](/docs/T6.png 'Resultaat')
+    
     HTML - vraag beantwoord - bovenaan weergave vraag en juiste antwoorden
     ![T7.png](/docs/T7.png 'Resultaat')
+    
     Resultaat:
     ![T8.png](/docs/T8.png 'Resultaat')
+    
     HTML: juiste antwoord weergeven en knop wordt Next
     ![T9.png](/docs/T9.png 'Resultaat')
+    
     Resultaat:
     ![T10.png](/docs/T10.png 'Resultaat')
         
