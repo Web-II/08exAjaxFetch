@@ -51,28 +51,28 @@ Vervolgens is er nog de klasse TriviaApp.
     - indien dit niet succesvol gebeurt, dan wordt een gepast bericht naar de console (dit mag eventueel ook via een alert of op de webpagina zelf) gestuurd en is de quiz afgelopen.
 - de methode showTrivia zal de webpagina weergeven:
     
-    HTML bij start:
+HTML bij start:
 
     ![T5.png](/docs/T5.png 'Resultaat')
     
-    Resultaat:
+Resultaat:
 
     ![T6.png](/docs/T6.png 'Resultaat')
     
-    HTML - vraag beantwoord - bovenaan weergave vraag en juiste antwoorden:
+HTML - vraag beantwoord - bovenaan weergave vraag en juiste antwoorden:
 
     ![T7.png](/docs/T7.png 'Resultaat')
     
-    Resultaat:
+Resultaat:
 
     ![T8.png](/docs/T8.png 'Resultaat')
     
-    HTML: juiste antwoord weergeven en knop wordt Next
+HTML: juiste antwoord weergeven en knop wordt Next
 
     ![T9.png](/docs/T9.png 'Resultaat')
     
-    Resultaat:
-    
+Resultaat:
+
     ![T10.png](/docs/T10.png 'Resultaat')
         
         
