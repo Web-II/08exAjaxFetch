@@ -1,4 +1,4 @@
-# 08solAjaxFetch
+# 08exAjaxFetch
 ## Oefening 1:  Trivia quiz.
 Dit is een oefening op Ajax/fetch, promises, callback, eventhandeling, DOM.
 
