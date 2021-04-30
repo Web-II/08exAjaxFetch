@@ -3,10 +3,10 @@
 Dit is een oefening op Ajax/fetch, promises, callback, eventhandeling, DOM.
 
 Deze oefening stelt 10 Trivia (trivial pursuit) vragen met enkele mogelijke oplossingen na elkaar. Nadat de 10 vragen gesteld zijn en een antwoord op elke vraag gegeven is, eindigt de quiz.
-De vragen worden één per één op het scherm getoond met de mogelijke oplossingen. Nadat één oplossing gekozen is, bevestig je je antwoord door op de knop 'submit' answer te klikken. Vervolgens wordt het juiste antwoord getoond en het aantal reeds gestelde vragen en juiste antwoorden boven de vraag weergegeven.
-Vervolgens kan men op de knop 'next' klikken en verschijnt de volgende vraag.
+De vragen worden één per één op het scherm getoond met de mogelijke oplossingen. Nadat één oplossing gekozen is, bevestig je je antwoord door op de knop 'submit answer' answer te klikken. Vervolgens wordt het juiste antwoord getoond en het aantal reeds gestelde vragen en juiste antwoorden boven de vraag weergegeven.
+Vervolgens kan men op de knop 'next question' klikken en verschijnt de volgende vraag.
 Nadat de tien vragen gesteld en beantwoord zijn wordt de knop disabled en is de quiz gedaan.
-De vragen voor deze quiz worden random opgevraagd via de volgende api:[Open Trivia Database ](https://opentdb.com/). Bekijk de api en tracht de juiste url te bepalen die nodig is om 10 random vragen uit de database op te vragen.  
+De vragen voor deze quiz worden random opgevraagd via de volgende api: [Open Trivia Database ](https://opentdb.com/). Bekijk de api en tracht de juiste url te bepalen die nodig is om 10 random vragen uit de database op te vragen.  
 
 Voorbeeld van het verloop van de quiz:
 Vraag 5 wordt getoond met de mogelijke oplossingen.
@@ -15,7 +15,7 @@ Vraag 5 wordt getoond met de mogelijke oplossingen.
 Vraag 5 is beantwoord en er is op de 'submit answer' knop geklikt.
 ![T2.png](/docs/T2.png 'Resultaat')
 
-Na het klikken op de knop 'next' wordt vraag 6 met mogelijke antwoorden weergegeven.
+Na het klikken op de knop 'next question' wordt vraag 6 met mogelijke antwoorden weergegeven.
 ![T3.png](/docs/T3.png 'Resultaat')
 
 Nadat de tiende vraag is beantwoord, blijft de laatste vraag met antwoord zichtbaar, maar is de knop disabled.
@@ -31,54 +31,39 @@ De trivia.js bevat naast de global function fetchRequest(url) ook een Class Triv
 
 De code heeft ook een klasse TriviaGame. Deze zal de 10 random trivia bijhouden en de nodige methodes voorzien om de TriviaApp te kunnen uitvoeren (zie verder), maw om de quiz te kunnen spelen.
 De TriviaGame:
-- de 10 trivia vragen worden bijgehouden in de trivias array.
-- de huidige vraag wordt bijgehouden in de currentTrivia (Number).
-- het aantal juiste antwoorden wordt bijgehouden in de correctAnswers (Number).
-Voor deze drie members van de klasse zijn reeds de nodige getters voorzien.
+- de 10 trivia vragen worden bijgehouden in de propertie trivias.
+- de antwoorden worden bijgehouden in de propertie answers. We houden bij of het antwoord al dan niet correct was (true of false).
+Vervolgens zijn volgende getters voorzien:
+- numberOfTrivias: geeft het aantal trivia terug
+- numberOfAnswers: geeft het aantal gegeven antwoorden terug
+- trivia: geeft de volgende trivia terug (maak gebruik van het aantal gegeven antwoorden om de volgende trivia te bepalen)
+- correctAnswers: geeft het aantal correcte antwoorden terug
 
 De methodes van deze klasse zijn:
-- addTrivias(dataObjecten) mapt de dataObjecten (van api) naar Trivia objects en voegt ze toen aan de array. Bekijk een mogelijk response van de api: exampleResponseApi.json: hier zie je dat het juiste antwoord (correct_answer) en de foute antwoorden (incorrect_answers) 2 verschillende properties zijn. In een Trivia object moeten de answers alle mogelijke antwoorden bevatten, dus het correcte antwoord en de foute antwoorden.
-- getNextTrivia(): retourneert de volgende Trivia.
-- checkAnswer(answer): retourneert true of false naargelang het antwoord al dan niet correct is.
-- checkEndGame(): retourneert true or fals naargelang de quiz al dan niet ten einde is. De quiz is ten einde als het aantal Trivia gelijk is aan de huidige Trivia.
+- addTrivias(dataObjecten) mapt de dataObjecten (van api) naar Trivia objects en voegt ze toen aan de array van trivias. Bekijk een mogelijk response van de api: exampleResponseApi.json: hier zie je dat het juiste antwoord (correct_answer) en de foute antwoorden (incorrect_answers) 2 verschillende properties zijn. In een Trivia object moeten de answers alle mogelijke antwoorden bevatten, dus het correcte antwoord en de foute antwoorden.
+- checkAnswer(answer): retourneert true of false naargelang het antwoord al dan niet correct is en voegt dit toe (true of false) aan de collection van answers.
+- checkEndGame(): retourneert true or fals naargelang de quiz al dan niet ten einde is. De quiz is ten einde als het aantal Trivia gelijk is aan het aantal gegeven antwoorden.
 
 Vervolgens is er nog de klasse TriviaApp. 
 - Deze bevat alle members en methods om Trivia te spelen. 
 - De App heeft uiteraard een TriviaGame object nodig en moet de data ophalen: getData().
-- de methode getData() zal door gebruik te maken van de fetchRequest functie om de 10 Trivia op te halen bij de api.
-    - indien dit succesvol gebeurt worden de Objecten van de api toegevoegd als Trivia Objecten aan de array van de game, gebruik hiervoor de method 'addTrivias(dataObjecten)' van het triviaGame object. Vervolgens wordt de quiz opgestart en de eerste vraag weergegeven op de html pagina: showTrivia(nextTrivia).
+- de methode getData() zal, door gebruik te maken van de fetchRequest functie, de 10 Trivia ophalen bij de api.
+    - indien dit succesvol gebeurt worden de Objecten van de api toegevoegd als Trivia Objecten aan de array van de game, gebruik hiervoor de method 'addTrivias(dataObjecten)' van het triviaGame object. Vervolgens wordt de quiz opgestart en de eerste vraag weergegeven op de html pagina: showTrivia(trivia).
     - indien dit niet succesvol gebeurt, dan wordt een gepast bericht naar de console (dit mag eventueel ook via een alert of op de webpagina zelf) gestuurd en is de quiz afgelopen.
 - de methode showTrivia zal de webpagina weergeven:
+    - implementeer het weergeven van het aantal reeds gestelde vragen tov. het totaal aantal vragen (span met id="question")
+    - implementeer het weergeven van het aantal reeds correcte antwoorden tov. het totaal aantal gegeven antwoorden (span met id="correct")
+    - implementeer het weergeven van het correcte antwoord (span met id="answer")        
     
-HTML bij start:
 
-![T5.png](/docs/T5.png 'Resultaat')
-    
-Resultaat:
 
-![T6.png](/docs/T6.png 'Resultaat')
-    
-HTML - vraag beantwoord - bovenaan weergave vraag en juiste antwoorden:
 
-![T7.png](/docs/T7.png 'Resultaat')
-    
-Resultaat:
-
-![T8.png](/docs/T8.png 'Resultaat')
-    
-HTML: juiste antwoord weergeven en knop wordt Next
-
-![T9.png](/docs/T9.png 'Resultaat')
-    
-Resultaat:
-
-![T10.png](/docs/T10.png 'Resultaat')
         
         
 ## Oefening 2:  FilmBrowser.
 Dit is een oefening op Ajax/fetch, promises, callback, eventhandeling, DOM.
 
-Deze oefening laat de gebruiker een zoekterm ingeven. Na het klikken op de 'Search' button krijgen we de 10 meest relevante films voor de zoekterm te zien. Voor elke film kan op een detail knop geklikt worden en worden de details van de film getoond. Bij de detailview is er ook een knop voorzien om terug te keren naar de zoekresultaten.
+Deze oefening laat de gebruiker een zoekterm ingeven. Na het klikken op de 'Search' button krijgen we de 10 meest relevante films voor de zoekterm te zien. Zorg voor een gepaste boodschap, indien geen zoekterm is ingegeven of als er iets fout gaat bij het ophalen van de data. Voor elke film kan op de image geklikt worden en worden de details van de film getoond. Bij de detailview klik je op de image om terug te keren naar de zoekresultaten.
 
 De films worden opgevraagd via de volgende api: [Open Movie Database ](http://www.omdbapi.com/). Om deze database te raadplegen heb je een key nodig (deze is gratis). Indien je geen key aanvraagt, kan je volgende key gebruiken: 'apikey=57927523'. Vraag toch je eigen key aan want per key is er een gelimiteerd aantal request per dag. Bekijk de api en tracht de juiste url's te bepalen die nodig zijn om films op te vragen en een film (detail) op te vragen via het id van de film: voor beide heb je een request naar de api nodig.
 
@@ -86,7 +71,7 @@ Start applicatie:
 
 ![F1.png](/docs/F1.png 'Resultaat')
     
-Resultaat na zoekterm 'star' ingegeven en op search knop geklikt.
+Resultaat na zoekterm 'star' ingeven en op search knop klikken.
 
 ![F2.png](/docs/F2.png 'Resultaat')
 

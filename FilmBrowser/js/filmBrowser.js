@@ -1,5 +1,5 @@
-function fetchRequest(url){
-	
+function fetchRequest(url) {
+
 }
 
 class Film {
@@ -9,21 +9,21 @@ class Film {
     this.poster = poster;
     this._type = type;
     this._year = year;
-    this._detail = {time:'',genre:'',director:'',actors:'',plot:'',language:''}
+    this._detail = { time: '', genre: '', director: '', actors: '', plot: '', language: '' }
   }
   get id() { return this._id; }
-  
+
   get title() { return this._title; }
 
   get type() { return this._type; }
 
   get poster() { return this._poster; }
   set poster(value) { value !== 'N/A' ? this._poster = value : this.poster = 'images/No_image_available.svg'; }
- 
+
   get year() { return this._year; }
 
   get detail() { return this._detail; }
-  
+
 }
 
 class FilmRepository {
@@ -34,13 +34,13 @@ class FilmRepository {
   get films() { return this._films; }
 
   addFilms(arrFilms) {
-    
+
   }
-  addDetail(id,objDetail){
-    
+  addDetail(id, objDetail) {
+
   }
-  getFilmById(id){
-    
+  getFilmById(id) {
+
   }
 }
 
@@ -50,28 +50,27 @@ class FilmBrowserApp {
   }
 
   get filmRepository() { return this._filmRepository; }
-  
-  searchFilms(searchText){
-      if (searchText !== '' && /([^\s])/.test(searchText)){
-        //url: http://www.omdbapi.com/?s=${searchText}&apikey=yourkey
-      }
+
+  searchFilms(searchText) {
+    if (searchText !== '' && /([^\s])/.test(searchText)) {
+      //url: http://www.omdbapi.com/?s=${searchText}&apikey=yourkey
+    }
   }
 
-  getFilm(id){
+  getFilm(id) {
     //url: http://www.omdbapi.com/?i=${id}&plot=full&apikey=yourkey
-    
+
   }
-  
 
   showFilms() {
     document.getElementById('films').innerHTML = '';
-    this.filmRepository.films.forEach((film) => {
+    this._filmRepository.films.forEach((film) => {
       document.getElementById('films').insertAdjacentHTML('beforeend',
-      `     
+        `     
         <div class="col s12 m6">
           <div class="card small horizontal">
             <div class="card-image">
-              <img src="${film.poster}">
+              <img id="${film.id}" src="${film.poster}">
               </div>
             <div class="card-stacked">  
               <div class="card-content">
@@ -80,33 +79,29 @@ class FilmBrowserApp {
                   <li>Type: ${film.type}</li>
                   <li>Year: ${film.year}</li>
                 </ul>
-                <a id="${film.id}" class="btn-floating btn-small waves-effect waves-light green"><i class="material-icons">details</i></a>
-              </div> 
+             </div> 
             </div>       
           </div>
         </div>
       `
       );
       //implementeer
-      document.getElementById(film.id).onclick = ()=>{
-        
-      }
+      document.getElementById(film.id).onclick = () => { };
     });
   }
 
-  showDetailFilm(film){
+  showDetailFilm(film) {
     let details = '';
-    //create <li> elementen om de elk detail weer te geven, voeg deze toe aan details
     Object.entries(film.detail).forEach(([key, value]) => {
-       details += `<li><label>${key}:</label> ${value}</li>`;
+      details += `<li><label>${key}:</label> ${value}</li>`;
     });
-    document.getElementById('films').innerHTML = '';    
+    document.getElementById('films').innerHTML = '';
     document.getElementById('films').insertAdjacentHTML('beforeend',
       `     
         <div class="col s12">
           <div class="card horizontal">
             <div class="card-image">
-              <img src="${film.poster}">
+              <img id="listFilms" src="${film.poster}">
             </div>
             <div class="card-stacked">  
               <div class="card-content">
@@ -119,33 +114,30 @@ class FilmBrowserApp {
               </div>
             </div>       
           </div>
-          <a id="listFilms" class="waves-effect waves-light btn-small"><i class="material-icons right">list</i>Back</a>            
         </div>
       `
     );
     //implementeer
-    document.getElementById('listFilms').onclick = ()=>{
-      
-    }
+    document.getElementById('listFilms').onclick = () => { }
   }
 
-  showNoResult(){
+  showMessage(message) {
     document.getElementById('films').innerHTML = '';
     document.getElementById('films').insertAdjacentHTML('beforeend',
       `
       <div class="col s12">
-        <p>No result!!</p>
+        <p>${message}</p>
       </div>
       `
     );
   }
 }
 
-const init = function() {
+const init = function () {
   const filmBrowserApp = new FilmBrowserApp();
   //implementeer
-  document.getElementById("searchBtn").onclick = ()=>{
-    
+  document.getElementById("searchBtn").onclick = () => {
+
   }
 }
 

@@ -1,5 +1,5 @@
 function fetchRequest(url) {
-	
+
 }
 
 class Trivia {
@@ -26,38 +26,35 @@ class Trivia {
 		return this._correctAnswer;
 	}
 	isCorrectAnswer(answer) {
-		
+
 	}
 
 }
 
 class TriviaGame {
 	constructor() {
-		
-	}
-
-	get correctAnswers() {
-		return this._correctAnswers;
+		this._trivias = null;
+		this._answers = null;
 	}
 
 	get numberOfTrivias() {
 		return this._trivias.length;
 	}
+	get numberOfAnswers() {
+		return this._answers.length;
+	}
+	get trivia() {
 
-	get currentTrivia() {
-		return this._currentTrivia;
 	}
-	addTrivias(dataObjects){
-		
-	}
-	getNextTrivia() {
-		
-	}
+	get correctAnswers() {
 
+	}
+	addTrivias(dataObjects) {
+
+	}
 	checkAnswer(answer) {
-		
-	}
 
+	}
 	checkEndGame() {
 
 	}
@@ -69,20 +66,18 @@ class TriviaApp {
 	}
 	getData() {
 		// url: https://opentdb.com/api.php?amount=10
-		
+
 	}
 
 	showTrivia(trivia) {
 		const triviaHTML = document.getElementById("trivia");
 		triviaHTML.innerHTML = '';
-		//Geeft aantal vragen en score weer
-		
-		
-		
+		//Geeft aantal gestelde vragen op het totaal aantal vragen weer.
+
 		triviaHTML.insertAdjacentHTML('beforeend',
 			`<div class="card-content">
-				<span class="card-title">${trivia.category} - Difficulty: ${trivia.difficulty}</span>
-				<p>${trivia.question}</p>
+				<span>${trivia.category} - Difficulty: ${trivia.difficulty}</span><br>
+				<span>${trivia.question}</span>
 			</div>`
 		);
 		const divCA = document.createElement('div');
@@ -111,17 +106,16 @@ class TriviaApp {
 		)
 		document.getElementById('next').onclick = () => {
 			if (document.querySelector('input[name="group"]:checked')) {
-				triviaHTML.insertAdjacentHTML('beforeend',
-					`<div class="card-action">
-						<p>Answer: ${trivia.correctAnswer}</p>
-					</div>`
-				);
-				this._triviaGame.checkAnswer(document.querySelector('input[name="group"]:checked').value);
-				document.getElementById("correct").innerText = `Correct answers: ${this._triviaGame.correctAnswers}/${this._triviaGame.currentTrivia}`;
+				//geef het correcte antwoord weer
+
+				// check of het antwoord al dan niet correct is, en toont het aantal correcte antwoorden op de gegeven antwoorden
+
+
 				if (!this._triviaGame.checkEndGame()) {
-					document.getElementById('next').innerText = 'Next';
+					document.getElementById('next').innerText = 'Next question';
 					document.getElementById('next').onclick = () => {
-						this.showTrivia(this._triviaGame.getNextTrivia());
+						document.getElementById("answer").innerHTML = '';
+						this.showTrivia(this._triviaGame.trivia);
 					};
 				} else {
 					document.getElementById('next').className = 'btn-small blue darken-2 disabled';
@@ -132,7 +126,7 @@ class TriviaApp {
 }
 
 const init = function () {
-	const app = new TriviaApp();
+	new TriviaApp();
 }
 
 window.onload = init;
